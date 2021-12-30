@@ -12,6 +12,7 @@ namespace PL
         {
             AppStart();
         }
+
         private static void AppStart()
         {
             InputCommand inputCommand = new InputCommand();
