@@ -5,11 +5,11 @@ using System.Linq;
 using System.Text;
 namespace DFMLib
 {
-    public class FoldersManager : IFileManager
+    public class FileManager : IFileManager
     {
         private string roofPath;
         private ManagerHelper _managerHelper;
-        public FoldersManager(string name)
+        public FileManager(string name)
         {
             this.roofPath = name;
             _managerHelper = new ManagerHelper(name);
@@ -39,7 +39,7 @@ namespace DFMLib
 
         public void ChangeDirectory(string newRoofPath)
         {
-            if (_managerHelper.FileOrDirectoryExists(newRoofPath, PathName, FileAttributes.Directory))
+            if (_managerHelper.FileOrDirectoryExists(newRoofPath, "", FileAttributes.Directory))
             {
                 roofPath = newRoofPath;
                 _managerHelper.PathName = newRoofPath;

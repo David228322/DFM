@@ -1,5 +1,9 @@
 ﻿using System;
+using System.IO;
 using DFMLib;
+using Microsoft.Extensions.DependencyInjection;
+using Pl;
+
 namespace PL
 {
     class ConsoleUI
@@ -8,10 +12,10 @@ namespace PL
         {
             AppStart();
         }
-
         private static void AppStart()
         {
-            throw new NotImplementedException();
+            InputCommand inputCommand = new InputCommand();
+            inputCommand.UserInput();
         }
     }
 }
