@@ -6,17 +6,20 @@ using Pl;
 
 namespace PL
 {
-    class ConsoleUI
+    internal class ConsoleUI
     {
-        static void Main(string[] args)
+        private static void Main()
         {
-            AppStart();
+            var services = new ServiceCollection();
+            ConfigureServices(services);
+            var serviceProvider = services.BuildServiceProvider();
+            serviceProvider.GetService<InputCommand>().UserInput();
         }
 
-        private static void AppStart()
+        private static void ConfigureServices(IServiceCollection services)
         {
-            InputCommand inputCommand = new InputCommand();
-            inputCommand.UserInput();
+            services.AddScoped<IFileManager, FileManager>();
+            services.AddScoped<InputCommand>();
         }
     }
 }
