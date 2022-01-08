@@ -28,11 +28,17 @@ namespace Pl
 
                 switch (inputCommand)
                 {
+                    case "help":
+                        fileManager.FileManagerCommand();
+                        break;
                     case "exit":
                         isRunning = false;
                         break;
                     case "cls":
                         Console.Clear();
+                        break;
+                    case "content":
+                        Console.WriteLine(fileManager.GetFilesProperties());
                         break;
                     case "dir":
                         string pathFlag = inputResult;

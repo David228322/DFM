@@ -194,5 +194,59 @@ namespace DFMLib
                 return "File doesn't exist.";
             }
         }
+
+        public void FileManagerCommand()
+        {
+            string[] inputCommands =
+            {
+                "exit",
+                "cls",
+                "dir",
+                "cd",
+                "mkdir",
+                "fsutil",
+                "rmdir",
+                "del",
+                "ren",
+                "sub",
+                "type",
+                "content",
+            };
+
+            string[] commandsMethod =
+            {
+                "Exit from file manager",
+                "Clear file manager screen",
+                $"Show files and directories in path. Addition flags:\n/D - sorting by date creation " +
+                $"\n/E - sorting by extentions \n/N - sorting by name \n/S - sorting by size",
+                "Change current directory",
+                "Create new directory",
+                "Create new file",
+                "Delete directory. Addition flags: \n/q - delete without permission non empty file \n/s ask permission to delete non-empty file",
+                "Delete current file",
+                "Rename file or directory",
+                "Search substring in text file",
+                "Read text in text file",
+                "Get full information about files in directory: name, length, creation time, extension",
+            };
+
+            for (int i = 0; i < inputCommands.Length; i++)
+            {
+                Console.WriteLine($"{inputCommands[i],10} - {commandsMethod[i],-10}");
+            }
+        }
+
+        public string GetFilesProperties()
+        {
+            StringBuilder sb = new StringBuilder();
+            DirectoryInfo directory = new DirectoryInfo(this.PathName);
+            FileInfo[] files = directory.GetFiles();
+            foreach (var file in files)
+            {
+                sb.AppendLine($"{file.Name,-60} {file.Length,-10} {file.CreationTime,-20} {file.Extension,-20}");
+            }
+
+            return sb.ToString();
+        }
     }
 }

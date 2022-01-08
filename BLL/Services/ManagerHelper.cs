@@ -59,6 +59,7 @@ namespace DFMLib
                 FileAttributes.ReadOnly,
                 FileAttributes.System,
             };
+
             foreach (var attribute in fileAttributes)
             {
                 if (dirOrFileName.HasFlag(attribute))

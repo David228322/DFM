@@ -25,5 +25,9 @@ namespace DFMLib
         public string FindStringInFile(string file, string searchString);
 
         public string FileReading(string file);
+
+        public void FileManagerCommand();
+
+        public string GetFilesProperties();
     }
 }
